@@ -4,8 +4,9 @@
 
 * Fork one of our repositories and make your own local repository
 * Develop code locally then make a pull request (see below)
-* Follow GitFlow Workflow for development. (https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+* Follow Forking Workflow for development. (https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow)
 ** Please see the Git Branching Model included at the end of this document for a visual on how to use supporting branches beyond master and develop. We will NOT be making any hotfix or release branches, as this level of branching is more appropriate for a more complex and further developed project. 
+![Forking Workflow](/GitForks.png)
 
 ### Pull Requests
 
@@ -66,3 +67,6 @@
     * Reference classes with `{ClassName}`
     * Reference instance methods with `{ClassName::methodName}`
     * Reference class methods with `{ClassName.methodName}`
+
+### Git Branching Model
+![Git Branching Model](/Git_branching_model.png)
