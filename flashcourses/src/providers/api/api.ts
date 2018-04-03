@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 /*
   Api Provider helps in making server restapi calls
@@ -7,16 +9,13 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ApiProvider {
 
-  this.API_URL = 'http://159.65.236.42';
-  this.AUTH_TOKEN = '';
+  API_URL: string = 'http://159.65.236.42';
+  AUTH_TOKEN: string = '';
 
   constructor(public http: HttpClient) {
-    this.http.post(this.apiUrl+'/users', JSON.stringify(data), {
-      headers: new HttpHeaders().set('Authorization', 'my-auth-token'),
-    })
   }
 
-  getAuthToken() {
+  getAuthToken(): string {
     if (this.AUTH_TOKEN != '') {
       return this.AUTH_TOKEN;
     } else {
@@ -28,11 +27,11 @@ export class ApiProvider {
     url_params: HttpParams object
     E.g. new HttpParams().set('id', '3')
   */
-  getGetObject(endpoint, url_params) {
-    this.http.get(this.API_URL + '/flashcards/api/deck/list/', {
-      headers: new HttpHeaders().set('Authorization', getAuthToken()),
+  getGetObject(endpoint, url_params): Observable<Object> {
+    return this.http.get(this.API_URL + '/flashcards/api/deck/list/', {
+      headers: new HttpHeaders().set('Authorization', this.getAuthToken()),
       params: url_params,
-    })
+    });
   }
 
   /*
@@ -40,11 +39,11 @@ export class ApiProvider {
     url_params: HttpParams object
     E.g. new HttpParams().set('id', '3')
   */
-  getPostObject(endpoint, body_params, url_params) {
-    this.http.post(thsi.API_URL + endpoint, JSON.stringify(body_params), {
-      headers: new HttpHeaders().set('Authorization', getAuthToken()),
+  getPostObject(endpoint, body_params, url_params): Observable<Object> {
+    return this.http.post(this.API_URL + endpoint, JSON.stringify(body_params), {
+      headers: new HttpHeaders().set('Authorization', this.getAuthToken()),
       params: url_params,
-    })
+    });
   }
 
   /*
@@ -52,7 +51,7 @@ export class ApiProvider {
   */
   getDecks() {
     return new Promise(resolve => {
-      getGetObject('/flashcards/api/deck/list/', {}).subscribe(data => {
+      this.getGetObject('/flashcards/api/deck/list/', {}).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
