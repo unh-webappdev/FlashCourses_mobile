@@ -1,0 +1,23 @@
+page-home {
+    
+    .logo {
+        display: block;
+        margin: auto;
+        width: 50%;
+        margin-top: 4vh;
+        border: 8px;
+        border-style: groove;
+    }
+    
+    .fc-btn{
+        background-color:#6FA8DD;
+        color: white;
+        font-size:20px;
+        padding: 16px;
+        margin: 8px;
+    }
+
+    .no-scroll{
+        overflow: hidden;
+    }
+}
