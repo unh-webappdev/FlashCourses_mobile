@@ -1,5 +1,4 @@
-page-home {
-    
+page-login {
     .logo {
         display: block;
         margin: auto;
@@ -8,16 +7,9 @@ page-home {
         border: 8px;
         border-style: groove;
     }
-    
-    .fc-btn{
-        background-color:#6FA8DD;
+    .label{
+        background-color: #000507; 
+        opacity:0.8;
         color: white;
-        font-size:20px;
-        padding: 16px;
-        margin: 8px;
-    }
-
-    .no-scroll{
-        overflow: hidden;
     }
 }
