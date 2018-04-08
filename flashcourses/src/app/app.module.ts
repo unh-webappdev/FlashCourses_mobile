@@ -9,16 +9,24 @@ import { HomePage } from '../pages/home/home';
 import { ApiProvider } from '../providers/api/api';
 import { LoginPage } from '../pages/login/login';
 import { RegistrationPage } from '../pages/registration/registration';
+import { AboutPage } from '../pages/about/about';
+
+
+//new
+import {HttpModule} from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+//endnew
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
+    AboutPage,
     RegistrationPage
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, HttpModule,HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -26,13 +34,14 @@ import { RegistrationPage } from '../pages/registration/registration';
     MyApp,
     HomePage,
     LoginPage,
+    AboutPage,
     RegistrationPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider
+    ApiProvider,HttpClientModule
   ]
 })
 export class AppModule {}
