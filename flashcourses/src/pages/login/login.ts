@@ -7,6 +7,7 @@ import { ToastOptions } from 'ionic-angular/components/toast/toast-options'
 import { ApiProvider } from '../../providers/api/api';
 import { FlashtabsPage } from '../flashtabs/flashtabs';
 import { LoadingController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the LoginPage page.
@@ -29,7 +30,7 @@ export class LoginPage {
 
  
 constructor(public navCtrl: NavController, public navParams: NavParams, private _service:ApiProvider, 
-  private _toast:ToastController,public loadingCtrl: LoadingController) {
+  private _toast:ToastController,public loadingCtrl: LoadingController,private storage: Storage) {
   this.toastOptions = {message : 'Please verify your credentials', duration:2000}
 }
   
@@ -39,9 +40,10 @@ constructor(public navCtrl: NavController, public navParams: NavParams, private 
   }
 
   onLoginSuccesful(token:string){
-    this.navCtrl.push(FlashtabsPage)/*.then(()=>
+    this.navCtrl.push(FlashtabsPage);
+    this.storage.set('usertoken', token);/*.then(()=>
   this.navCtrl.remove(0, this.navCtrl.getActive().index));
-  console.log(token);*/
+    console.log(token);*/
   }
 
  

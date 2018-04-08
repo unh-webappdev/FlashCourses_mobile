@@ -13,6 +13,7 @@ import { AboutPage } from '../pages/about/about';
 import {HttpModule} from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { FlashtabsPage } from '../pages/flashtabs/flashtabs';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FlashtabsPage } from '../pages/flashtabs/flashtabs';
   ],
   imports: [
     BrowserModule, HttpModule,HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
