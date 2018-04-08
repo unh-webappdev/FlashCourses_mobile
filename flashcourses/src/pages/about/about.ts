@@ -24,7 +24,7 @@ export class AboutPage {
   
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TestPage');
+    console.log('ionViewDidLoad AboutPage');
   }
 
 }

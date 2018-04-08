@@ -10,12 +10,9 @@ import { ApiProvider } from '../providers/api/api';
 import { LoginPage } from '../pages/login/login';
 import { RegistrationPage } from '../pages/registration/registration';
 import { AboutPage } from '../pages/about/about';
-
-
-//new
 import {HttpModule} from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-//endnew
+import { FlashtabsPage } from '../pages/flashtabs/flashtabs';
 
 @NgModule({
   declarations: [
@@ -23,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomePage,
     LoginPage,
     AboutPage,
-    RegistrationPage
+    RegistrationPage,
+    FlashtabsPage,
   ],
   imports: [
     BrowserModule, HttpModule,HttpClientModule,
@@ -35,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomePage,
     LoginPage,
     AboutPage,
-    RegistrationPage
+    RegistrationPage,FlashtabsPage
   ],
   providers: [
     StatusBar,
