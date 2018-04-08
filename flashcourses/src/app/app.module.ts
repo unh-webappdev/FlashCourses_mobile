@@ -9,30 +9,39 @@ import { HomePage } from '../pages/home/home';
 import { ApiProvider } from '../providers/api/api';
 import { LoginPage } from '../pages/login/login';
 import { RegistrationPage } from '../pages/registration/registration';
+import { AboutPage } from '../pages/about/about';
+import {HttpModule} from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { FlashtabsPage } from '../pages/flashtabs/flashtabs';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    RegistrationPage
+    AboutPage,
+    RegistrationPage,
+    FlashtabsPage,
   ],
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
+    BrowserModule, HttpModule,HttpClientModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     LoginPage,
-    RegistrationPage
+    AboutPage,
+    RegistrationPage,FlashtabsPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider
+    ApiProvider,HttpClientModule
   ]
 })
 export class AppModule {}
