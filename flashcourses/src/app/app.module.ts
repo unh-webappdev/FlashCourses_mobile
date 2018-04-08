@@ -33,7 +33,7 @@ import { FlashtabsPage } from '../pages/flashtabs/flashtabs';
     HomePage,
     LoginPage,
     AboutPage,
-    RegistrationPage,FlashtabsPage
+    RegistrationPage,FlashtabsPage,
   ],
   providers: [
     StatusBar,

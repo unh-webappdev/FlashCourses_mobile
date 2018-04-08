@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController} from 'ionic-angular';
 import { AboutPage } from '../about/about';
 
 /**
@@ -18,6 +18,6 @@ export class FlashtabsPage {
   aboutRoot = AboutPage;
 
 
-  constructor(public navCtrl: NavController) {}
-
+  constructor(public navCtrl: NavController,) {
+  }
 }
