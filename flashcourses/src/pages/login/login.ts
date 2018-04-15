@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {LoginModel} from './loginModel';
+import { LoginModel } from './LoginModel';
 import { TokenModel } from './TokenModel';
-import {ToastController} from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 import { ToastOptions } from 'ionic-angular/components/toast/toast-options'
 import { ApiProvider } from '../../providers/api/api';
 import { FlashtabsPage } from '../flashtabs/flashtabs';
