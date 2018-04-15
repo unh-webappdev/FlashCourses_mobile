@@ -21,7 +21,6 @@ import { ApiProvider } from '../../providers/api/api';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
-  providers:[ApiProvider]
 })
 export class LoginPage {
 
@@ -41,7 +40,8 @@ constructor(public navCtrl: NavController, public navParams: NavParams, private 
   }
 
   onLoginSuccesful(token:string){
-    this.navCtrl.push(FlashtabsPage);
+    //this.navCtrl.push(FlashtabsPage);
+    this.navCtrl.setRoot(FlashtabsPage);
     this.storage.set('usertoken', token);
   }
 

@@ -1,9 +1,15 @@
 <ion-menu [content]="flashcontent" side="left" type="push">
+    <ion-header>
+        <ion-toolbar>
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
     <ion-content padding>
         <ion-list>
-            <button ion-item>Privacy Policy</button>
-            <button ion-item>Contact Us</button>
-            <button ion-item>Logout</button>  
+            <button ion-item menuClose *ngFor="let page of pages" (click)="gotoPage(page)">
+                {{ page.title }}
+            </button>
         </ion-list>
     </ion-content>
 </ion-menu>
