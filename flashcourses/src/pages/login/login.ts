@@ -42,9 +42,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, private 
 
   onLoginSuccesful(token:string){
     this.navCtrl.push(FlashtabsPage);
-    this.storage.set('usertoken', token);/*.then(()=>
-  this.navCtrl.remove(0, this.navCtrl.getActive().index));
-    console.log(token);*/
+    this.storage.set('usertoken', token);
   }
 
   login(){
@@ -53,9 +51,11 @@ constructor(public navCtrl: NavController, public navParams: NavParams, private 
     });
     loader.present().then(() => {
       this.api_service.login({"username":this.loginModel.username,"password":this.loginModel.password})
-    .subscribe(token =>{this.Token = token,this.onLoginSuccesful(this.Token.access)},
-    ()=><any>this._toast.create(this.toastOptions).present().then(
-      () =>{loader.dismiss();})
+      .subscribe(token =>{this.Token = token,this.onLoginSuccesful(this.Token.access)},
+      ()=><any>this._toast.create(this.toastOptions).present()
+      .then(() => {
+        loader.dismiss();
+      })
     )});
     loader.dismiss();
   }
