@@ -5,7 +5,6 @@ import { ToastOptions } from 'ionic-angular/components/toast/toast-options'
 import { FlashtabsPage } from '../flashtabs/flashtabs';
 import { LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-
 import { LoginModel } from './LoginModel';
 import { TokenModel } from './TokenModel';
 import { ApiProvider } from '../../providers/api/api';
@@ -39,10 +38,10 @@ constructor(public navCtrl: NavController, public navParams: NavParams, private 
     console.log('ionViewDidLoad LoginPage');
   }
 
-  onLoginSuccesful(token:string){
-    //this.navCtrl.push(FlashtabsPage);
+  onLoginSuccesful(token:string, refresh:string){
     this.navCtrl.setRoot(FlashtabsPage);
     this.storage.set('usertoken', token);
+    this.storage.set('userrefresh', refresh);
   }
 
   login(){
@@ -50,8 +49,10 @@ constructor(public navCtrl: NavController, public navParams: NavParams, private 
       content: "Flashcourses is validating your information...",
     });
     loader.present().then(() => {
-      this.api_service.login({"username":this.loginModel.username,"password":this.loginModel.password})
-      .subscribe(token =>{this.Token = token,this.onLoginSuccesful(this.Token.access)},
+      this.api_service.login("/api/token/",{"username":this.loginModel.username,"password":this.loginModel.password})
+      .subscribe(token =>{
+        this.Token = token,this.onLoginSuccesful(this.Token.access, this.Token.refresh)
+      },
       ()=><any>this._toast.create(this.toastOptions).present()
       .then(() => {
         loader.dismiss();
@@ -59,4 +60,5 @@ constructor(public navCtrl: NavController, public navParams: NavParams, private 
     )});
     loader.dismiss();
   }
+
 }

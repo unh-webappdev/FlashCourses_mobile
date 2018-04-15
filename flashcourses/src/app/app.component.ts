@@ -29,6 +29,7 @@ export class MyApp {
 
   logout(){
     this.storage.remove('usertoken');
+    this.storage.remove('userrefresh');
   }
 
 }

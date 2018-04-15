@@ -38,9 +38,9 @@ export class ApiProvider {
     Login api post builder object
     body_params: should be a json object
   */
-  login(body_params): Observable<any> {
+  login(endpoint, body_params): Observable<any> {
     return this.http.post(
-      this.API_URL + "/api/token/",
+      this.API_URL+endpoint,
       JSON.stringify(body_params),
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
