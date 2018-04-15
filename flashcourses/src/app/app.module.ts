@@ -3,7 +3,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ApiProvider } from '../providers/api/api';
@@ -14,6 +13,7 @@ import {HttpModule} from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { FlashtabsPage } from '../pages/flashtabs/flashtabs';
 import { IonicStorageModule } from '@ionic/storage';
+import { InstitutionsPage } from '../pages/institutions/institutions';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { IonicStorageModule } from '@ionic/storage';
     AboutPage,
     RegistrationPage,
     FlashtabsPage,
+    InstitutionsPage
   ],
   imports: [
     BrowserModule, HttpModule,HttpClientModule,
@@ -36,6 +37,7 @@ import { IonicStorageModule } from '@ionic/storage';
     LoginPage,
     AboutPage,
     RegistrationPage,FlashtabsPage,
+    InstitutionsPage
   ],
   providers: [
     StatusBar,
