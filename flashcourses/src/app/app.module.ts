@@ -13,6 +13,7 @@ import {HttpModule} from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { FlashtabsPage } from '../pages/flashtabs/flashtabs';
 import { IonicStorageModule } from '@ionic/storage';
+import { InstitutionsPage } from '../pages/institutions/institutions';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { IonicStorageModule } from '@ionic/storage';
     AboutPage,
     RegistrationPage,
     FlashtabsPage,
+    InstitutionsPage
   ],
   imports: [
     BrowserModule, HttpModule,HttpClientModule,
@@ -35,6 +37,7 @@ import { IonicStorageModule } from '@ionic/storage';
     LoginPage,
     AboutPage,
     RegistrationPage,FlashtabsPage,
+    InstitutionsPage
   ],
   providers: [
     StatusBar,
