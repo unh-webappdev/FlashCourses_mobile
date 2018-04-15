@@ -27,9 +27,9 @@ export class ApiProvider {
     url_params: HttpParams object
     E.g. new HttpParams().set('id', '3')
   */
-  getGetObject(endpoint, url_params): Observable<Object> {
-    return this.http.get(this.API_URL + '/flashcards/api/deck/list/', {
-      headers: new HttpHeaders().set('Authorization', this.getAuthToken()),
+  getGetObject(endpoint, url_params): Observable<any> {
+    return this.http.get(this.API_URL + endpoint, {
+      //headers: new HttpHeaders().set('Authorization', this.getAuthToken()),
       params: url_params,
     });
   }
@@ -38,9 +38,9 @@ export class ApiProvider {
     Login api post builder object
     body_params: should be a json object
   */
-  login(endpoint, body_params): Observable<any> {
+  login(body_params): Observable<any> {
     return this.http.post(
-      this.API_URL+endpoint,
+      this.API_URL+"/api/token/",
       JSON.stringify(body_params),
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
@@ -55,7 +55,7 @@ export class ApiProvider {
   */
   getPostObject(endpoint, body_params): Observable<any> {
     let headers = new HttpHeaders()
-                    .set('Authorization', this.getAuthToken())
+                    //.set('Authorization', this.getAuthToken())
                     .set('Content-Type', 'application/json');
     return this.http.post(
       this.API_URL + endpoint,

@@ -40,7 +40,7 @@ export class HomePage {
     });
     loader.present().then(() => {
       this.storage.get('userrefresh').then((val) => {
-        this.api_service.login("/api/token/refresh/",{"refresh":val})
+        this.api_service.getPostObject("/api/token/refresh/",{"refresh":val})
         .subscribe(token =>{
           this.Token = token,this.onRefreshSuccesful(this.Token.access)
         })

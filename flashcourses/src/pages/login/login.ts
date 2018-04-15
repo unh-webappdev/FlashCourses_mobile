@@ -49,7 +49,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, private 
       content: "Flashcourses is validating your information...",
     });
     loader.present().then(() => {
-      this.api_service.login("/api/token/",{"username":this.loginModel.username,"password":this.loginModel.password})
+      this.api_service.login({"username":this.loginModel.username,"password":this.loginModel.password})
       .subscribe(token =>{
         this.Token = token,this.onLoginSuccesful(this.Token.access, this.Token.refresh)
       },
