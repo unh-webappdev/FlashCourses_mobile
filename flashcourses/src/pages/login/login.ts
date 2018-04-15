@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {LoginModel} from './loginModel';
-import { TokenModel } from './TokenModel';
-import {ToastController} from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 import { ToastOptions } from 'ionic-angular/components/toast/toast-options'
-import { ApiProvider } from '../../providers/api/api';
 import { FlashtabsPage } from '../flashtabs/flashtabs';
 import { LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+
+import { LoginModel } from './LoginModel';
+import { TokenModel } from './TokenModel';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the LoginPage page.
@@ -28,12 +29,12 @@ export class LoginPage {
   loginModel = new LoginModel();
   toastOptions:ToastOptions;
 
- 
-constructor(public navCtrl: NavController, public navParams: NavParams, private _service:ApiProvider, 
+
+constructor(public navCtrl: NavController, public navParams: NavParams, private api_service:ApiProvider,
   private _toast:ToastController,public loadingCtrl: LoadingController,private storage: Storage) {
   this.toastOptions = {message : 'Please verify your credentials', duration:2000}
 }
-  
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -46,21 +47,16 @@ constructor(public navCtrl: NavController, public navParams: NavParams, private 
     console.log(token);*/
   }
 
- 
-
   login(){
     let loader = this.loadingCtrl.create({
       content: "Flashcourses is validating your information...",
     });
     loader.present().then(() => {
-      this._service.getPostObject("/api/token/",{"username":this.loginModel.username,"password":this.loginModel.password})
+      this.api_service.login({"username":this.loginModel.username,"password":this.loginModel.password})
     .subscribe(token =>{this.Token = token,this.onLoginSuccesful(this.Token.access)},
     ()=><any>this._toast.create(this.toastOptions).present().then(
       () =>{loader.dismiss();})
     )});
     loader.dismiss();
   }
-
-
-
 }
