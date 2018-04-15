@@ -35,15 +35,35 @@ export class ApiProvider {
   }
 
   /*
+    Login api post builder object
+    body_params: should be a json object
+  */
+  login(body_params): Observable<any> {
+    return this.http.post(
+      this.API_URL + "/api/token/",
+      JSON.stringify(body_params),
+      {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      }
+    );
+  }
+
+  /*
     body_params: should be a json object
     url_params: HttpParams object
     E.g. new HttpParams().set('id', '3')
   */
-  getPostObject(endpoint, body_params, url_params): Observable<Object> {
-    return this.http.post(this.API_URL + endpoint, JSON.stringify(body_params), {
-      headers: new HttpHeaders().set('Authorization', this.getAuthToken()),
-      params: url_params,
-    });
+  getPostObject(endpoint, body_params): Observable<any> {
+    let headers = new HttpHeaders()
+                    .set('Authorization', this.getAuthToken())
+                    .set('Content-Type', 'application/json');
+    return this.http.post(
+      this.API_URL + endpoint,
+      JSON.stringify(body_params),
+      {
+        headers: headers,
+      }
+    );
   }
 
   /*
