@@ -49,7 +49,7 @@ export class RegistrationPage {
     });
     loader.present().then(() => {
       this._service.getPostObject("/accounts/api/registration/",{"username":this.registrationForm.controls['username'].value,"email":this.registrationForm.controls['email'].value, "password":this.registrationForm.controls['password'].value})
-    .subscribe(this.onRegistrationSuccesful(),
+    .subscribe(result => this.onRegistrationSuccesful(),
     ()=><any>this._toast.create(this.toastOptions).present().then(
       () =>{loader.dismiss();})
     )});
