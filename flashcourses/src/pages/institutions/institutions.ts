@@ -32,9 +32,9 @@ export class InstitutionsPage {
     });
   }
 
-  toCourses(){
+  toCourses(institution){
       console.log("in the method to courses");
-      this.navCtrl.push(CoursesPage);
+      this.navCtrl.push(CoursesPage, {data: institution});
   }
 
   doRefresh(refresher) {
