@@ -11,40 +11,33 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-  <form [formGroup]="registrationForm" (submit)="register" autocomplete="off">
+<ion-content class="bg no-scroll" padding>
+  <form [formGroup]="registrationForm" (ngSubmit)="register()" autocomplete="off">
     <ion-row>
       <ion-col>
         <ion-list inset>
-          <ion-item>
+          <ion-item class="label">
           	<ion-label>Username</ion-label>
-            <ion-input name="username" type="text" required></ion-input>
+            <ion-input name="username" type="text" [formControl]="registrationForm.controls['username']"></ion-input>
           </ion-item>
-          <ion-item>
+          <ion-item class="label">
           	<ion-label>Email</ion-label>
-            <ion-input name="email" type="email" required></ion-input>
+            <ion-input name="email" type="email" [formControl]="registrationForm.controls['email']"></ion-input>
           </ion-item>
-          <ion-item>
-          	<ion-label>Repeat Email</ion-label>
-            <ion-input name="email2" type="email" required></ion-input>
-          </ion-item>
-          <ion-item>
+          <ion-item class="label">
           	<ion-label>Password</ion-label>
-            <ion-input name="password" type="password" required></ion-input>
-          </ion-item>
-          <ion-item>
-          	<ion-label>Repeat Password</ion-label>
-            <ion-input name="password2" type="password" required></ion-input>
+            <ion-input name="password" type="password" [formControl]="registrationForm.controls['password']"></ion-input>
           </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-        <button ion-button class="submit-btn" full type="submit" full [disabled]="!registrationForm.valid">
-        	Register
-        </button>
+        <div text-center>
+          <button ion-button style="background-color:#6FA8DD;width:58%" type="submit">
+        	  Register
+          </button>
+        </div>
       </ion-col>
     </ion-row>
   </form>
