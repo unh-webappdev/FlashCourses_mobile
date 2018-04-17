@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlashtabsPage } from '../pages/flashtabs/flashtabs';
 import { IonicStorageModule } from '@ionic/storage';
 import { InstitutionsPage } from '../pages/institutions/institutions';
+import { CoursesPage } from '../pages/courses/courses';
 import { DecksPage } from '../pages/decks/decks';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { DecksPage } from '../pages/decks/decks';
     RegistrationPage,
     FlashtabsPage,
     InstitutionsPage,
+    CoursesPage,
     DecksPage,
   ],
   imports: [
@@ -41,6 +43,7 @@ import { DecksPage } from '../pages/decks/decks';
     RegistrationPage,
     FlashtabsPage,
     InstitutionsPage,
+    CoursesPage,
     DecksPage,
   ],
   providers: [

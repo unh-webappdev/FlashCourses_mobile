@@ -4,7 +4,7 @@
       <button ion-button icon-only menuToggle>
         <ion-icon name="menu"> </ion-icon>
       </button>
-    </ion-buttons>  
+    </ion-buttons>
   <ion-title >Institutions List</ion-title>
   </ion-navbar>
 </ion-header>
@@ -24,7 +24,7 @@
   <!--<ion-searchbar (ionInput)="getInstitutions($event)" placeholder="Search Institutions"></ion-searchbar> !-->
   <ion-searchbar placeholder="Search Institutions"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let institution of InstitutionList">
+    <ion-item *ngFor="let institution of InstitutionList" (click)="toCourses(institution.institution_name)">
       {{ institution.institution_name }}
     </ion-item>
   </ion-list>
