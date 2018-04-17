@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController} from 'ionic-angular';
 import { AboutPage } from '../about/about';
 import { InstitutionsPage } from '../institutions/institutions';
+import { DecksPage } from '../decks/decks';
 
 /**
  * Generated class for the FlashtabsPage tabs.
@@ -18,6 +19,7 @@ import { InstitutionsPage } from '../institutions/institutions';
 export class FlashtabsPage {
   aboutRoot = AboutPage;
   institutionsRoot = InstitutionsPage;
+  decksRoot = DecksPage;
 
   constructor(public navCtrl: NavController,) {
   }
