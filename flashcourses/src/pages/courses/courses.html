@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"> </ion-icon>
+      </button>
+    </ion-buttons>
+  <ion-title >Courses List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+    </ion-refresher-content>
+
+  </ion-refresher>
+  <h3>Select a course from {{ institution }}</h3>
+  <!--<ion-searchbar (ionInput)="getInstitutions($event)" placeholder="Search Institutions"></ion-searchbar> !-->
+  <ion-searchbar placeholder="Search Courses"></ion-searchbar>
+  <ion-list>
+      <ion-item *ngFor="let course of CoursesList">
+        {{ course.course_title }}
+      </ion-item>
+  </ion-list>
+</ion-content>
