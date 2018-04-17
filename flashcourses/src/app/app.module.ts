@@ -15,6 +15,7 @@ import { FlashtabsPage } from '../pages/flashtabs/flashtabs';
 import { IonicStorageModule } from '@ionic/storage';
 import { InstitutionsPage } from '../pages/institutions/institutions';
 import { CoursesPage } from '../pages/courses/courses';
+import { DecksPage } from '../pages/decks/decks';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CoursesPage } from '../pages/courses/courses';
     RegistrationPage,
     FlashtabsPage,
     InstitutionsPage,
-    CoursesPage
+    CoursesPage,
+    DecksPage,
   ],
   imports: [
     BrowserModule, HttpModule,HttpClientModule,
@@ -41,13 +43,15 @@ import { CoursesPage } from '../pages/courses/courses';
     RegistrationPage,
     FlashtabsPage,
     InstitutionsPage,
-    CoursesPage
+    CoursesPage,
+    DecksPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider,HttpClientModule
+    ApiProvider,
+    HttpClientModule,
   ]
 })
 export class AppModule {}
