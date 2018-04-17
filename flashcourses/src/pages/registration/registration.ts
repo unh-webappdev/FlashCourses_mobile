@@ -22,6 +22,7 @@ import { LoadingController } from 'ionic-angular';
 export class RegistrationPage {
 
   public registrationForm: any;
+  toastOptions:ToastOptions;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public _form: FormBuilder,
    private _service:ApiProvider, private _toast:ToastController,public loadingCtrl: LoadingController) {
