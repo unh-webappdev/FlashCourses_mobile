@@ -16,17 +16,29 @@ import { ApiProvider } from '../../providers/api/api';
 })
 export class DecksPage {
 
-  decks: String
+  decks: String[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private apiProvider: ApiProvider) {
-      apiProvider.getGetObject("/flashcards/api/deck/list/",{})
-      .subscribe(function(decks) {
-          this.decks = decks;
-      });
+      let course_unique_id:String = navParams.get("course_unique_id");
+
+      this.initializeDecks();
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DecksPage');
+  }
+
+  initializeDecks() {
+      this.apiProvider.getGetObject("/flashcards/api/deck/list/",{})
+      .subscribe(_decks => {this.decks = _decks});
+  }
+
+  doRefresh(refresher) {
+    this.initializeDecks();
+    setTimeout(() => {
+      refresher.complete();
+    }, 2000);
   }
 
 }
