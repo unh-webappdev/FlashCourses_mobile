@@ -1,3 +1,9 @@
+/*
+Author: Omu Oreva David
+Last Modified: 04/24/2018
+path:"/src/pages/login/login.ts"
+*/
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';

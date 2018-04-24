@@ -1,14 +1,13 @@
+/*
+Author: Omu Oreva David
+Last Modified: 04/24/2018
+path:"/src/pages/institutions/institutions.ts"
+*/
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { CoursesPage } from '../courses/courses';
-
-/**
- * Generated class for the InstitutionsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
