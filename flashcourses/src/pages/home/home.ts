@@ -27,7 +27,7 @@ export class HomePage {
         this.refresh();
         // added this for right now
         // refresh wasnt working correctly, so it wouldn't take me to the login page
-        this.navCtrl.push(LoginPage);
+        //this.navCtrl.push(LoginPage);
       }
     });
   }
@@ -46,7 +46,7 @@ export class HomePage {
         this.api_service.getPostObject("/api/token/refresh/",{"refresh":val})
         .subscribe(token =>{
           this.Token = token,this.onRefreshSuccesful(this.Token.access)
-        })
+        }, ()=><any> this.navCtrl.push(LoginPage))
       })
     });
     loader.dismiss();
