@@ -8,7 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { ApiProvider } from '../providers/api/api';
 import { LoginPage } from '../pages/login/login';
 import { RegistrationPage } from '../pages/registration/registration';
-import { AboutPage } from '../pages/about/about';
+import { AboutPage, modalView } from '../pages/about/about';
 import {HttpModule} from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { FlashtabsPage } from '../pages/flashtabs/flashtabs';
@@ -27,7 +27,7 @@ import { DecksPage } from '../pages/decks/decks';
     FlashtabsPage,
     InstitutionsPage,
     CoursesPage,
-    DecksPage,
+    DecksPage, modalView
   ],
   imports: [
     BrowserModule, HttpModule,HttpClientModule,
@@ -44,7 +44,7 @@ import { DecksPage } from '../pages/decks/decks';
     FlashtabsPage,
     InstitutionsPage,
     CoursesPage,
-    DecksPage,
+    DecksPage, modalView
   ],
   providers: [
     StatusBar,

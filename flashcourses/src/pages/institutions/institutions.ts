@@ -1,14 +1,14 @@
+/*
+Author: Omu Oreva David
+Last Modified: 04/28/2018
+path:"/src/pages/institutions/institutions.ts"
+*/
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { CoursesPage } from '../courses/courses';
-
-/**
- * Generated class for the InstitutionsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { InstitutionModel } from './InstitutionModel';
 
 @IonicPage()
 @Component({
@@ -16,7 +16,8 @@ import { CoursesPage } from '../courses/courses';
   templateUrl: 'institutions.html',
 })
 export class InstitutionsPage {
-  InstitutionList:String[];
+  items:any;
+  InstitutionList: InstitutionModel[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private api_service:ApiProvider) {
     this.initializeInstitutions();
@@ -28,8 +29,13 @@ export class InstitutionsPage {
 
   initializeInstitutions(){
     this.api_service.getGetObject("/courses/api/institution/list/",{})
-    .subscribe(institutions =>{this.InstitutionList = institutions
+    .subscribe(institutions =>{this.items = institutions,
+      this.InstitutionList = Array.from(this.items)
     });
+  }
+
+  resettoFilter(){
+    this.InstitutionList = Array.from(this.items);
   }
 
   toCourses(institution){
@@ -43,5 +49,16 @@ export class InstitutionsPage {
       refresher.complete();
     }, 2000);
   }
+
+  getInstitutions(ev: any) {
+    this.resettoFilter();
+    let val = ev.target.value;
+    if (val && val.trim() != '') {
+      this.InstitutionList = this.InstitutionList.filter((institution) => {
+        return (institution.institution_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
+  }
+
 
 }
