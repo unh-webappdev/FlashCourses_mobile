@@ -1,6 +1,6 @@
 /*
 Author: Omu Oreva David
-Last Modified: 04/24/2018
+Last Modified: 04/28/2018
 path:"/src/pages/institution/institutionModel.ts"
 */
 export class InstitutionModel{

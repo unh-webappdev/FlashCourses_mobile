@@ -1,6 +1,6 @@
 <!--
 Author: Omu Oreva David
-Last Modified: 04/24/2018
+Last Modified: 04/28/2018
 path:"/src/pages/about/about.html"
 !-->
 <ion-header>
@@ -18,16 +18,15 @@ path:"/src/pages/about/about.html"
   <h2>About FlashCourses</h2>
   <p>Some text on FlashCourses</p>
   <p>More text...</p>
-  <p>More text...</p>
 
   <ion-list>
-    <a ion-item (click)="openModal({charNum: 0})">
+    <a ion-item (click)="showModal({pageNo: 0})">
       Contact
     </a>
-    <a ion-item (click)="openModal({charNum: 1})">
+    <a ion-item (click)="showModal({pageNo: 1})">
       Privacy Policy
     </a>
-    <a ion-item (click)="openModal({charNum: 2})">
+    <a ion-item (click)="showModal({pageNo: 2})">
       Terms of service
     </a>
   </ion-list>
