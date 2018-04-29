@@ -50,8 +50,8 @@ export class AboutPage {
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-        <h4>{{view.content}}</h4>
-        <p>{{view.more}}</p>
+  <h4>{{view.content}}</h4>
+  <p>{{view.more}}</p>
 </ion-content>
 `
 })
