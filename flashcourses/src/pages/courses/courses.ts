@@ -22,17 +22,14 @@ import { CourseModel } from './courseModel';
   templateUrl: 'courses.html',
 })
 export class CoursesPage {
-  CoursesList:String[];
-  institution:String;
+  CoursesList: String[];
   courses: CourseModel[];
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private api_service:ApiProvider) {
-      // when the page loads, load data
-      this.initializeCourses();
-      // get institution from other page
-      this.institution = navParams.get('data');
+  constructor(public navCtrl: NavController, public navParams: NavParams, private api_service: ApiProvider) {
+    // when the page loads, load data
+    this.initializeCourses();
   }
 
   ionViewDidLoad() {
@@ -43,22 +40,39 @@ export class CoursesPage {
   // on th einstitution page, I grabbed the UUID of the school
   // now I am using the institution detail endpoint which will give me
   // all course objects from that school
-  initializeCourses(){
-    this.api_service.getGetObject("/courses/api/institution/detail/" + this.navParams.get('data'),{})
-    .subscribe(_courses => {this.courses = _courses.courses});
-    
+  initializeCourses() {
+    this.api_service.getGetObject("/courses/api/institution/detail/" + this.navParams.get('data'), {})
+      .subscribe(_courses => { this.courses = _courses.courses, this.CoursesList = _courses });
+
+  }
+
+  resetFilter() {
+
   }
 
   getItems(ev: any) {
+    this.resetFilter();
+
     // set val to the value of the searchbar
     let val = ev.target.value;
 
-    // if the value is an empty string don't filter the items
+    // if the value is anything other than an empty string, start the filter
+    // if the value is an empty string, this means user cleared search box
+    // reload values on else statement
     if (val && val.trim() != '') {
       this.courses = this.courses.filter((course) => {
         return (course.course_title.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
+    else{
+      this.initializeCourses();
+    }
   }
 
+  doRefresh(refresher) {
+    this.initializeCourses();
+    setTimeout(() => {
+      refresher.complete();
+    }, 2000);
+  }
 }
