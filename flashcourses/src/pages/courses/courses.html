@@ -5,7 +5,7 @@
         <ion-icon name="menu"> </ion-icon>
       </button>
     </ion-buttons>
-  <ion-title >Institutions List</ion-title>
+  <ion-title >Courses List</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -20,12 +20,12 @@
     </ion-refresher-content>
 
   </ion-refresher>
-  <h3>Select an institution</h3>
+  <h3>Select a course from {{ institution }}</h3>
   <!--<ion-searchbar (ionInput)="getInstitutions($event)" placeholder="Search Institutions"></ion-searchbar> !-->
-  <ion-searchbar placeholder="Search Institutions"></ion-searchbar>
+  <ion-searchbar placeholder="Search Courses"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let institution of InstitutionList" (click)="toCourses(institution.unique_id)">
-      {{ institution.institution_name }}
-    </ion-item>
+      <ion-item *ngFor="let course of CoursesList"  (click)="toDecks(course.unique_id)">
+        {{ course.course_title }}
+      </ion-item>
   </ion-list>
 </ion-content>
