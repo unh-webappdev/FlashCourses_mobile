@@ -27,7 +27,7 @@ import { DecksPage } from '../pages/decks/decks';
     FlashtabsPage,
     InstitutionsPage,
     CoursesPage,
-    DecksPage, modalView,
+    DecksPage, modalView
   ],
   imports: [
     BrowserModule, HttpModule,HttpClientModule,
@@ -44,7 +44,7 @@ import { DecksPage } from '../pages/decks/decks';
     FlashtabsPage,
     InstitutionsPage,
     CoursesPage,
-    DecksPage,modalView,
+    DecksPage, modalView
   ],
   providers: [
     StatusBar,
