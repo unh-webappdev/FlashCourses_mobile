@@ -30,7 +30,7 @@ export class InstitutionsPage {
   initializeInstitutions(){
     this.api_service.getGetObject("/courses/api/institution/list/",{})
     .subscribe(institutions =>{this.items = institutions,
-      this.InstitutionList = Array.from(this.items),console.log(this.InstitutionList)
+      this.InstitutionList = Array.from(this.items)
     });
   }
 
