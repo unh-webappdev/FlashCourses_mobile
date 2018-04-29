@@ -17,7 +17,6 @@ import { ApiProvider } from '../../providers/api/api';
 export class DecksPage {
 
   decks: String[];
-  decks2: String[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private apiProvider: ApiProvider) {
       this.initializeDecks();
