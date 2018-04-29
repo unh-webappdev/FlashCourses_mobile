@@ -19,10 +19,7 @@ export class DecksPage {
   decks: String[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private apiProvider: ApiProvider) {
-      let course_unique_id:String = navParams.get("course_unique_id");
-
       this.initializeDecks();
-
   }
 
   ionViewDidLoad() {
@@ -30,9 +27,9 @@ export class DecksPage {
   }
 
   initializeDecks() {
-      this.apiProvider.getGetObject("/flashcards/api/deck/list/",{})
-      .subscribe(_decks => {this.decks = _decks});
-  }
+      this.apiProvider.getGetObject("/courses/api/course/tree/" + this.navParams.get('course_unique_id'),{})
+      .subscribe(_decks => {this.decks = _decks.decks});
+  } 
 
   doRefresh(refresher) {
     this.initializeDecks();

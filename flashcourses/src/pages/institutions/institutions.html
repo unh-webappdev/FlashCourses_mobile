@@ -28,7 +28,7 @@ path:"/src/pages/institutions/institutions.html"
   <h3>Select an institution</h3>
   <ion-searchbar (ionInput)="getInstitutions($event)" placeholder="Search Institutions"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let institution of InstitutionList" (click)="toCourses(institution.institution_name)">
+    <ion-item *ngFor="let institution of InstitutionList" (click)="toCourses(institution.unique_id)">
       {{ institution.institution_name }}
     </ion-item>
   </ion-list>

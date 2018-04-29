@@ -37,9 +37,8 @@ export class CoursesPage {
 
   // this grabs the data from the API
   initializeCourses(){
-    this.api_service.getGetObject("/courses/api/course/list/",{})
-    .subscribe(courses =>{this.CoursesList = courses
-    });
+      this.api_service.getGetObject("/courses/api/institution/detail/" + this.navParams.get('data'),{})
+      .subscribe(courses =>{this.CoursesList = courses.courses});
   }
 
 }
