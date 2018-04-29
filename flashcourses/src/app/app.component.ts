@@ -1,3 +1,9 @@
+/*
+Author: Omu Oreva David
+Last Modified: 04/24/2018
+path:"/src/pages/app/app.component.ts"
+*/
+
 import { Component, ViewChild } from '@angular/core';
 import { Nav } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';

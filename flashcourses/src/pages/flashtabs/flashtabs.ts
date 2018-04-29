@@ -1,3 +1,9 @@
+/*
+Author: Omu Oreva David
+Last Modified: 04/24/2018
+path:"/src/pages/flashtabs/flashtabs.ts"
+*/
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController} from 'ionic-angular';
 import { AboutPage } from '../about/about';
