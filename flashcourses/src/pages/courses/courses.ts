@@ -36,13 +36,12 @@ export class CoursesPage {
   }
 
   // this grabs the data from the API
-  // on th einstitution page, I grabbed the UUID of the school
+  // on the institution page, I grabbed the UUID of the school
   // now I am using the institution detail endpoint which will give me
   // all course objects from that school
   initializeCourses() {
     this.api_service.getGetObject("/courses/api/institution/detail/" + this.navParams.get('data'), {})
       .subscribe(_courses => { this.courses = _courses.courses});
-
   }
 
   getItems(ev: any) {

@@ -1,3 +1,8 @@
+<!--
+Author: Omu Oreva David
+Last Modified: 04/28/2018
+path:"/src/pages/about/about.html"
+!-->
 <ion-header>
   <ion-navbar color="primary">
     <ion-buttons>
@@ -11,4 +16,18 @@
 
 <ion-content padding>
   <h2>About FlashCourses</h2>
+  <p>Some text on FlashCourses</p>
+  <p>More text...</p>
+
+  <ion-list>
+    <a ion-item (click)="showModal({pageNo: 0})">
+      Contact
+    </a>
+    <a ion-item (click)="showModal({pageNo: 1})">
+      Privacy Policy
+    </a>
+    <a ion-item (click)="showModal({pageNo: 2})">
+      Terms of service
+    </a>
+  </ion-list>
 </ion-content>

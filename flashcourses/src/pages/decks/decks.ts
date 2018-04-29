@@ -1,13 +1,14 @@
+/*
+Author: Raghava Adusumilli
+Last Modified: 04/29/2018
+path:"/src/pages/decks/decks.ts"
+*/
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
-
-/**
- * Generated class for the DecksPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CardsPage } from '../cards/cards';
+import { DeckModel } from './deckModel';
 
 @IonicPage()
 @Component({
@@ -16,13 +17,10 @@ import { ApiProvider } from '../../providers/api/api';
 })
 export class DecksPage {
 
-  decks: String[];
+  decks: DeckModel[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private apiProvider: ApiProvider) {
-      let course_unique_id:String = navParams.get("course_unique_id");
-
       this.initializeDecks();
-
   }
 
   ionViewDidLoad() {
@@ -30,8 +28,12 @@ export class DecksPage {
   }
 
   initializeDecks() {
-      this.apiProvider.getGetObject("/flashcards/api/deck/list/",{})
-      .subscribe(_decks => {this.decks = _decks});
+      this.apiProvider.getGetObject("/courses/api/course/detail/" + this.navParams.get('course_unique_id'),{})
+      .subscribe(_decks => {this.decks = _decks.decks});
+  }
+
+  toCards(deckid) {
+    this.navCtrl.push(CardsPage, {deckid: deckid});
   }
 
   doRefresh(refresher) {

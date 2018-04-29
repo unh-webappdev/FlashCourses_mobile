@@ -23,7 +23,7 @@
   <h3>Select an Deck</h3>
   <ion-searchbar placeholder="Search Decks"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let deck of decks">
+    <ion-item *ngFor="let deck of decks" (click) = toCards(deck.unique_id)>
       {{ deck.title }}
     </ion-item>
   </ion-list>
