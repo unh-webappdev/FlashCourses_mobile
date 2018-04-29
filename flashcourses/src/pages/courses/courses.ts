@@ -22,7 +22,6 @@ import { CourseModel } from './courseModel';
   templateUrl: 'courses.html',
 })
 export class CoursesPage {
-  CoursesList: String[];
   courses: CourseModel[];
 
 
@@ -42,7 +41,7 @@ export class CoursesPage {
   // all course objects from that school
   initializeCourses() {
     this.api_service.getGetObject("/courses/api/institution/detail/" + this.navParams.get('data'), {})
-      .subscribe(_courses => { this.courses = _courses.courses, this.CoursesList = _courses });
+      .subscribe(_courses => { this.courses = _courses.courses});
 
   }
 
