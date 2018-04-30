@@ -38,28 +38,36 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
 );
+$tabs-background:	black;
+$tabs-tab-color-inactive: #6FA8DD;
+$tabs-tab-color-active:	white;
+$toolbar-background:	white;
+$menu-width:	250px;
 
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
+$tabs-ios-tab-color-active: $tabs-tab-color-active;
+$tabs-ios-tab-color-inactive: $tabs-tab-color-inactive;
 
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+$tabs-md-tab-color-active: $tabs-tab-color-active;
+$tabs-md-tab-color-inactive: $tabs-tab-color-inactive;
 
 
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
+$tabs-wp-tab-color-inactive: $tabs-tab-color-inactive;
+$tabs-wp-tab-color-active: $tabs-tab-color-active;
 
 
 
@@ -86,9 +94,3 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
-
-$tabs-background:	black;
-$tabs-tab-color-inactive: #6FA8DD;
-$tabs-tab-color-active:	white;
-$toolbar-background:	white;
-$menu-width:	250px;
