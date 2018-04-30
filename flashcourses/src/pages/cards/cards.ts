@@ -16,7 +16,8 @@ import { CardModel } from './cardModel';
 })
 export class CardsPage {
 
-  cards: CardModel[];
+  cards:CardModel[];
+  selected:number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private apiProvider: ApiProvider) {
     this.initializeCards();
@@ -31,10 +32,24 @@ export class CardsPage {
       .subscribe(_cards => {this.cards = _cards.cards});
   }
 
+  next() {
+    this.selected = (this.selected + 1) % this.cards.length;
+  }
+
+
+  prev() {
+    this.selected = (this.selected - 1 + this.cards.length) % this.cards.length;
+  }
+
+  isSelected(i):boolean {
+      return this.selected == i;
+  }
+
   doRefresh(refresher) {
     this.initializeCards();
     setTimeout(() => {
       refresher.complete();
+      this.selected = 0;
     }, 2000);
   }
 
