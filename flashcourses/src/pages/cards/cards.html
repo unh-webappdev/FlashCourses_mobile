@@ -5,7 +5,7 @@
         <ion-icon name="menu"> </ion-icon>
       </button>
     </ion-buttons>
-  <ion-title >Deck List</ion-title>
+  <ion-title >Card List</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -21,10 +21,11 @@
   </ion-refresher>
 
   <h3>Select an Deck</h3>
-  <ion-searchbar (ionInput)="searchForDeck($event)" placeholder="Search Decks"></ion-searchbar>
+  <ion-searchbar placeholder="Search Cards"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let deck of decks" (click) = toCards(deck.unique_id)>
-      {{ deck.title }}
-    </ion-item>
+    <flash-card *ngFor="let card of cards">
+      <div class="flash-card-front">{{ card.front }}</div>
+      <div class="flash-card-back">{{ card.back }}</div>
+    </flash-card>
   </ion-list>
 </ion-content>

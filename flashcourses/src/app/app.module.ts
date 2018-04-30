@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ApiProvider } from '../providers/api/api';
+import { FlashCardComponent } from '../components/flash-card/flash-card';
 import { LoginPage } from '../pages/login/login';
 import { RegistrationPage } from '../pages/registration/registration';
 import { AboutPage, modalView } from '../pages/about/about';
@@ -16,6 +17,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { InstitutionsPage } from '../pages/institutions/institutions';
 import { CoursesPage } from '../pages/courses/courses';
 import { DecksPage } from '../pages/decks/decks';
+import { CardsPage } from '../pages/cards/cards';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,10 @@ import { DecksPage } from '../pages/decks/decks';
     FlashtabsPage,
     InstitutionsPage,
     CoursesPage,
-    DecksPage, modalView
+    DecksPage,
+    CardsPage,
+    FlashCardComponent,
+    modalView,
   ],
   imports: [
     BrowserModule, HttpModule,HttpClientModule,
@@ -44,7 +49,10 @@ import { DecksPage } from '../pages/decks/decks';
     FlashtabsPage,
     InstitutionsPage,
     CoursesPage,
-    DecksPage, modalView
+    DecksPage,
+    CardsPage,
+    FlashCardComponent,
+    modalView,
   ],
   providers: [
     StatusBar,

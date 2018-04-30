@@ -1,13 +1,14 @@
+/*
+Author: Raghava Adusumilli
+Last Modified: 04/29/2018
+path:"/src/pages/decks/decks.ts"
+*/
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
-
-/**
- * Generated class for the DecksPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CardsPage } from '../cards/cards';
+import { DeckModel } from './deckModel';
 
 @IonicPage()
 @Component({
@@ -18,6 +19,7 @@ export class DecksPage {
 
   decks: String[];
   staticDecks: String[]; /** Used for search refresh*/
+  decks: DeckModel[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private apiProvider: ApiProvider) {
       this.initializeDecks();
@@ -28,9 +30,14 @@ export class DecksPage {
   }
 
   initializeDecks() {
+
       this.apiProvider.getGetObject("/courses/api/course/tree/" + this.navParams.get('course_unique_id'),{})
       .subscribe(_decks => {this.decks = _decks.decks, this.staticDecks = _decks.decks});
   } 
+
+  toCards(deckid) {
+    this.navCtrl.push(CardsPage, {deckid: deckid});
+  }
 
   resettoFilter(){
     this.decks = this.staticDecks;
