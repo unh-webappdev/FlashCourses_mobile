@@ -17,8 +17,7 @@ import { DeckModel } from './deckModel';
 })
 export class DecksPage {
 
-  decks: String[];
-  staticDecks: String[]; /** Used for search refresh*/
+  staticDecks: DeckModel[]; /** Used for search refresh*/
   decks: DeckModel[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private apiProvider: ApiProvider) {
@@ -30,10 +29,9 @@ export class DecksPage {
   }
 
   initializeDecks() {
-
       this.apiProvider.getGetObject("/courses/api/course/tree/" + this.navParams.get('course_unique_id'),{})
       .subscribe(_decks => {this.decks = _decks.decks, this.staticDecks = _decks.decks});
-  } 
+  }
 
   toCards(deckid) {
     this.navCtrl.push(CardsPage, {deckid: deckid});

@@ -8,13 +8,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { CourseModel } from './courseModel';
-
-/**
- * Generated class for the CoursesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { DecksPage } from '../decks/decks';
 
 @IonicPage()
 @Component({
@@ -42,6 +36,11 @@ export class CoursesPage {
   initializeCourses() {
     this.api_service.getGetObject("/courses/api/institution/detail/" + this.navParams.get('data'), {})
       .subscribe(_courses => { this.courses = _courses.courses});
+  }
+
+
+  toDecks(course_unique_id) {
+    this.navCtrl.push(DecksPage, {course_unique_id: course_unique_id});
   }
 
   getItems(ev: any) {
