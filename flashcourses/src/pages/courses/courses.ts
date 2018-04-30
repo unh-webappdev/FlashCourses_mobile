@@ -8,7 +8,14 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { CourseModel } from './courseModel';
-import { DecksPage } from '../decks/decks';
+import { DecksPage } from '../decks/decks'
+
+/**
+ * Generated class for the CoursesPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
@@ -59,6 +66,10 @@ export class CoursesPage {
     else{
       this.initializeCourses();
     }
+  }
+
+  toDecks(course_unique_id) {
+    this.navCtrl.push(DecksPage, {course_unique_id: course_unique_id});
   }
 
   doRefresh(refresher) {

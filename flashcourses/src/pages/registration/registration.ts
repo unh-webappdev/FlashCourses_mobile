@@ -1,3 +1,9 @@
+/*
+Author: Vladimir Kazarin
+Last Modified: 04/29/2018
+path:"/src/pages/registration/registration.ts"
+*/
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, Validators } from "@angular/forms";
@@ -37,17 +43,25 @@ export class RegistrationPage {
     this.toastOptions = {message : 'Please provide valid entriess', duration:2000}
   }
 
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistrationPage');
   }
 
+  /**
+   * Login callback function
+   * stores received token on succesful login
+   * TODO: create a seperate module to not repeat login code here
+  */
   onLoginSuccesful(token:string, refresh:string){
     this.navCtrl.setRoot(FlashtabsPage);
     this.storage.set('usertoken', token);
     this.storage.set('userrefresh', refresh);
   }
 
+  /**
+   * Makes and API request to login the newly created user
+   * TODO: create a seperate module to not repeat login code here
+  */
   login(){
     let loader = this.loadingCtrl.create({
       content: "Flashcourses is validating your information...",
@@ -65,16 +79,30 @@ export class RegistrationPage {
     loader.dismiss();
   }
 
+
+  /**
+   * Registration callback function
+   * calls login method on succesful registration
+  */
   onRegistrationSuccesful(){
     this.login()
   }
 
+  /**
+   * Initiates a POST request to register a new user
+   * THe function grabs username, email, password from the registration form
+   * and updates the list of decks with received objects
+  */
   register() {
     let loader = this.loadingCtrl.create({
       content: "Flashcourses is validating your information...",
     });
     loader.present().then(() => {
-      this._service.getPostObject("/accounts/api/registration/",{"username":this.registrationForm.controls['username'].value,"email":this.registrationForm.controls['email'].value, "password":this.registrationForm.controls['password'].value})
+      this._service.getPostObject("/accounts/api/registration/",
+        {"username":this.registrationForm.controls['username'].value,
+         "email":this.registrationForm.controls['email'].value, 
+         "password":this.registrationForm.controls['password'].value}
+      )
     .subscribe(result => this.onRegistrationSuccesful(),
     ()=><any>this._toast.create(this.toastOptions).present().then(
       () =>{loader.dismiss();})

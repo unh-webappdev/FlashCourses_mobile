@@ -27,7 +27,7 @@ path:"/src/pages/courses/courseModel.ts" !-->
   <!--<ion-searchbar (ionInput)="getInstitutions($event)" placeholder="Search Institutions"></ion-searchbar> !-->
   <ion-searchbar placeholder="Search Courses" (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
-      <ion-item *ngFor="let course of courses" (click)=toDecks(course.unique_id)>
+      <ion-item *ngFor="let course of courses" (click)="toDecks(course.unique_id)">
         {{ course.course_title }}
       </ion-item>
   </ion-list>
