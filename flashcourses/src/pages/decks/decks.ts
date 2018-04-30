@@ -17,6 +17,8 @@ import { DeckModel } from './deckModel';
 })
 export class DecksPage {
 
+  decks: String[];
+  staticDecks: String[]; /** Used for search refresh*/
   decks: DeckModel[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private apiProvider: ApiProvider) {
@@ -28,12 +30,27 @@ export class DecksPage {
   }
 
   initializeDecks() {
-      this.apiProvider.getGetObject("/courses/api/course/detail/" + this.navParams.get('course_unique_id'),{})
-      .subscribe(_decks => {this.decks = _decks.decks});
-  }
+
+      this.apiProvider.getGetObject("/courses/api/course/tree/" + this.navParams.get('course_unique_id'),{})
+      .subscribe(_decks => {this.decks = _decks.decks, this.staticDecks = _decks.decks});
+  } 
 
   toCards(deckid) {
     this.navCtrl.push(CardsPage, {deckid: deckid});
+  }
+
+  resettoFilter(){
+    this.decks = this.staticDecks;
+  }
+
+  searchForDeck(event: any) {
+    this.resettoFilter();
+    let val = event.target.value;
+    if (val && val.trim() != '') {
+      this.decks = this.decks.filter(deck => {
+        return (deck.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
   }
 
   doRefresh(refresher) {
