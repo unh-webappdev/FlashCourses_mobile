@@ -1,3 +1,6 @@
+<!--Author: Nicholas Bielinski
+Last Modified: 04/29/2018
+path:"/src/pages/courses/courseModel.ts" !-->
 <ion-header>
   <ion-navbar color="primary">
     <ion-buttons>
@@ -20,11 +23,11 @@
     </ion-refresher-content>
 
   </ion-refresher>
-  <h3>Select a course from {{ institution }}</h3>
+  <h3>Select a course</h3>
   <!--<ion-searchbar (ionInput)="getInstitutions($event)" placeholder="Search Institutions"></ion-searchbar> !-->
-  <ion-searchbar placeholder="Search Courses"></ion-searchbar>
+  <ion-searchbar placeholder="Search Courses" (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
-      <ion-item *ngFor="let course of CoursesList"  (click)="toDecks(course.unique_id)">
+      <ion-item *ngFor="let course of courses" (click)=toDecks(course.unique_id)>
         {{ course.course_title }}
       </ion-item>
   </ion-list>
