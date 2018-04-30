@@ -28,21 +28,39 @@ export class DecksPage {
     console.log('ionViewDidLoad DecksPage');
   }
 
+  /**
+   * Initiates an API call to get decks for the selected course
+   * and updates the list of decks with received objects
+   * Author: Vladimir Kazarin
+  */
   initializeDecks() {
       this.apiProvider.getGetObject("/courses/api/course/tree/" + this.navParams.get('course_unique_id'),{})
-      .subscribe(_decks => {this.decks = _decks.decks, this.staticDecks = _decks.decks});
-  }
+      .subscribe(_decks => {this.decks = _decks.decks, 
+                            this.staticDecks = _decks.decks
+        }
+      );
+  } 
 
   toCards(deckid) {
     this.navCtrl.push(CardsPage, {deckid: deckid});
   }
 
-  resettoFilter(){
+  /**
+   * Resets filtered list of decks
+   * Author: Vladimir Kazarin
+  */
+  resetDecks(){
     this.decks = this.staticDecks;
   }
 
+  /**
+   * Searches for deck by its title
+   * and updates the list of decks
+   * Author: Vladimir Kazarin
+   * @param event  User input event.
+  */
   searchForDeck(event: any) {
-    this.resettoFilter();
+    this.resetDecks();
     let val = event.target.value;
     if (val && val.trim() != '') {
       this.decks = this.decks.filter(deck => {
