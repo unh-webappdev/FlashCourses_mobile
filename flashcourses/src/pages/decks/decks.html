@@ -1,3 +1,9 @@
+<!--
+Author: Raghava Adusumilli
+Last Modified: 04/29/2018
+path:"/src/pages/decks/decks.html"
+!-->
+
 <ion-header>
   <ion-navbar color="primary">
     <ion-buttons>
@@ -23,7 +29,7 @@
   <h3>Select an Deck</h3>
   <ion-searchbar (ionInput)="searchForDeck($event)" placeholder="Search Decks"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let deck of decks" (click) = toCards(deck.unique_id)>
+    <ion-item *ngFor="let deck of decks" (click)=toCards(deck.unique_id)>
       {{ deck.title }}
     </ion-item>
   </ion-list>

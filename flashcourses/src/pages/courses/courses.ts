@@ -45,6 +45,11 @@ export class CoursesPage {
       .subscribe(_courses => { this.courses = _courses.courses});
   }
 
+
+  toDecks(course_unique_id) {
+    this.navCtrl.push(DecksPage, {course_unique_id: course_unique_id});
+  }
+
   getItems(ev: any) {
 
     // set val to the value of the searchbar

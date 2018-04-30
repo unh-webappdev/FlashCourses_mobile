@@ -1,3 +1,9 @@
+/*
+* Author: Raghava Adusumilli
+* Last Modified: 04/29/2018
+* Path: src/components/flash-card/flash-card.scss
+*/
+
 flash-card {
 
     /* entire container, keeps perspective */
@@ -5,10 +11,10 @@ flash-card {
         perspective: 1000px;
     }
 
-        /* flip the pane when hovered */
-        .flip-container.flipped .flipper {
-            transform: rotateY(180deg);
-        }
+    /* flip the pane when hovered */
+    .flip-container.flipped .flipper {
+        transform: rotateY(180deg);
+    }
 
     .flip-container, .front, .back {
         width: 90vw;

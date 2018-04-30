@@ -17,7 +17,7 @@ import { DeckModel } from './deckModel';
 })
 export class DecksPage {
 
-  staticDecks: String[]; /** Used for search refresh*/
+  staticDecks: DeckModel[]; /** Used for search refresh*/
   decks: DeckModel[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private apiProvider: ApiProvider) {
