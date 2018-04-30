@@ -68,10 +68,6 @@ export class CoursesPage {
     }
   }
 
-  toDecks(course_unique_id) {
-    this.navCtrl.push(DecksPage, {course_unique_id: course_unique_id});
-  }
-
   doRefresh(refresher) {
     this.initializeCourses();
     setTimeout(() => {
