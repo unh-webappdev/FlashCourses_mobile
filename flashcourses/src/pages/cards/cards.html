@@ -1,7 +1,7 @@
 <!--
 Author: Raghava Adusumilli
 Last Modified: 04/29/2018
-path:"/src/pages/decks/decks.html"
+path:"/src/pages/cards/cards.html"
 !-->
 
 <ion-header>
@@ -11,7 +11,7 @@ path:"/src/pages/decks/decks.html"
         <ion-icon name="menu"> </ion-icon>
       </button>
     </ion-buttons>
-  <ion-title >Deck List</ion-title>
+  <ion-title >Card List</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -26,11 +26,14 @@ path:"/src/pages/decks/decks.html"
     </ion-refresher-content>
   </ion-refresher>
 
-  <h3>Select an Deck</h3>
-  <ion-searchbar (ionInput)="searchForDeck($event)" placeholder="Search Decks"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let deck of decks" (click)=toCards(deck.unique_id)>
-      {{ deck.title }}
-    </ion-item>
+    <span *ngFor="let card of cards; let i = index" [class.hidden]=isSelected(i)>
+      <flash-card>
+        <div class="flash-card-front">{{ card.front }}</div>
+        <div class="flash-card-back">{{ card.back }}</div>
+      </flash-card>
+      <a href="#" class="previous" (click)=prev()>&laquo; Previous</a>
+      <a href="#" class="next" (click)=next()>Next &raquo;</a>
+    </span>
   </ion-list>
 </ion-content>

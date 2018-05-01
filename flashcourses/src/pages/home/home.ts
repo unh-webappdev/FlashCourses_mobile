@@ -1,3 +1,9 @@
+/*
+Author: Omu Oreva David
+Last Modified: 04/24/2018
+path:"/src/pages/home/home.ts"
+*/
+
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
@@ -24,11 +30,8 @@ export class HomePage {
         this.navCtrl.push(LoginPage);
       }
       else{
-        this.refresh();
-        // added this for right now
-        // refresh wasnt working correctly, so it wouldn't take me to the login page
-        this.navCtrl.push(LoginPage);
-      }
+        this.refresh(); 
+        }
     });
   }
 
@@ -46,7 +49,7 @@ export class HomePage {
         this.api_service.getPostObject("/api/token/refresh/",{"refresh":val})
         .subscribe(token =>{
           this.Token = token,this.onRefreshSuccesful(this.Token.access)
-        })
+        },()=><any> this.navCtrl.push(LoginPage))
       })
     });
     loader.dismiss();

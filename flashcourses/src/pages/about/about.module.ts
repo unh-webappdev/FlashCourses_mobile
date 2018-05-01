@@ -1,3 +1,8 @@
+/*
+Author: Omu Oreva David
+Last Modified: 04/24/2018
+path:"/src/pages/about/about.module.ts"
+*/
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { AboutPage } from './about';
